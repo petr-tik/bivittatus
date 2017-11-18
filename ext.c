@@ -2,29 +2,38 @@
 
 #include <Python.h>
 
-static char module_docstring[] = "Toy extension module for CPython";
-static char myfun_docstring[] = "Performs maths on numbers";
+static char module_docstring[] = "Trie extension module for CPython";
 
-static PyObject *toymod_myfun(PyObject *self, PyObject *args)
-{
-	int first, second;
-	if (!PyArg_ParseTuple(args, "ii", &first, &second))
-		// expects 2 int in args, parses them into first and second;
-		return NULL;
-	int interim_power = 1;
-	for (int i = 0; i < first; ++i) {
-		interim_power *= second;
-	}
-	int result = first * second + interim_power;
-	PyObject *ret = Py_BuildValue("i", result);
-	return ret;
+/*
+
+Make a trie class, so we can add and look up words in the trie. Delete later -
+who ever uses delete?
+
+>>> trie = Trie()
+>>> trie.add("bob")
+>>> trie.find("bob")
+>>> True
+>>> trie.find("alice")
+>>> False
+
+
+*/
+
+static char add_docstring[] = "Adds a word to the trie";
+
+static PyObject *trie_add(PyObject *self, PyObject *args) {
+  // Adds the word to the trie
+  char word[20];
+  if (!PyArg_ParseTuple(args, "s", &word))
+    return NULL;
+
+  return Py_BuildValue("i", 1);
 }
 
 static PyMethodDef module_methods[] = {
-    {"myfun", toymod_myfun, METH_VARARGS, myfun_docstring},
-    {NULL, NULL, 0, NULL}};
+    {"add", trie_add, METH_VARARGS, add_docstring}, {NULL, NULL, 0, NULL}};
 
-static struct PyModuleDef toymod = {PyModuleDef_HEAD_INIT, "toy_mod",
-				    module_docstring, -1, module_methods};
+static struct PyModuleDef trie = {PyModuleDef_HEAD_INIT, "trie",
+                                  module_docstring, -1, module_methods};
 
-PyMODINIT_FUNC PyInit_toymod(void) { return PyModule_Create(&toymod); };
+PyMODINIT_FUNC PyInit_trie(void) { return PyModule_Create(&trie); };
