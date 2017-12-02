@@ -73,10 +73,9 @@ static int trie_init(trie *self, PyObject *args, PyObject *kwds) {
 
   // copied the incref, xdecref pattern from
   // https://docs.python.org/3/extending/newtypes.html
-  trie_node_t *tmp = self->head;
-  Py_INCREF(head);
+
   self->head = head;
-  Py_XDECREF(tmp);
+
   return 0;
 }
 
