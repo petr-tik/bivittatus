@@ -1,6 +1,7 @@
 import pytest
 
-from trie import Trie
+from ctrie import cTrie
+from py_trie import PyTrie
 
 
 def test_find_added():

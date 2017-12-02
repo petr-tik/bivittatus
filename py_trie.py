@@ -9,10 +9,10 @@ class TrieNode():
         self.children = [None for _ in string.ascii_lowercase]
 
 
-class Trie():
+class PyTrie():
 
     """
-    trie = Trie()
+    trie = PyTrie()
     trie.add("bob")
     trie.find("bob")
     True
@@ -31,11 +31,11 @@ class Trie():
         cur = self.head
 
         for char in new_word:
-            child = cur.children[Trie.char_to_idx(char)]
+            child = cur.children[PyTrie.char_to_idx(char)]
             if not child:
                 new_node = TrieNode(char)
-                cur.children[Trie.char_to_idx(char)] = new_node
-            cur = cur.children[Trie.char_to_idx(char)]
+                cur.children[PyTrie.char_to_idx(char)] = new_node
+            cur = cur.children[PyTrie.char_to_idx(char)]
         cur.is_word = True
         return None
 
@@ -43,7 +43,7 @@ class Trie():
         """ Returns boolean if word in trie or not """
         cur = self.head
         for char in word:
-            child = cur.children[Trie.char_to_idx(char)]
+            child = cur.children[PyTrie.char_to_idx(char)]
             if not child:
                 return False
             cur = child
@@ -52,11 +52,6 @@ class Trie():
 
 
 def test_trie():
-    import pytest
-    import pdb
-
-    trie = Trie()
-    trie.add("bob")
     assert trie.find("bob") == True
     assert trie.find("alice") == False
 

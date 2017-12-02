@@ -3,5 +3,5 @@
 from distutils.core import setup, Extension
 
 
-setup(ext_modules=[Extension("trie", ["trie.c"],
+setup(ext_modules=[Extension("ctrie", ["trie.c"],
                              extra_compile_args=["-g", "-O0"])])
