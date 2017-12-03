@@ -117,16 +117,13 @@ static PyObject *trie_find(trie *self, PyObject *args) {
     return NULL;
 
   trie_node_t *cur = self->head;
-  PySys_WriteStdout("Address %p has letter %c\n", cur, cur->letter);
 
   int ret = 0;
   int idx = 0;
 
   while (idx < word_length - 1 && cur != NULL) {
     char letter = word[idx];
-
     cur = cur->children[char_to_ascii(letter)];
-    PySys_WriteStdout("New address: %p\n", cur);
     ++idx;
   }
   if (cur != NULL)
