@@ -12,3 +12,6 @@ ext:
 
 test:
 	python3 -m pytest test.py
+
+bench:	clean ext test
+	python3 benchmark.py

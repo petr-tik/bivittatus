@@ -6,9 +6,9 @@ Find the difference between writing Python code vs compiling C into a shared lib
 
 ## Method
 
-A good comparison is storing and searching strings. A trie data structure is implemented with 2 methods - add and find. 2 implementations - Python and C compiled into a dynamic library loaded by the CPython interpreter are tested and benchmarked against each other to find out their memory footprint and speed. 
+A good comparison is storing and searching strings in a trie. A trie data structure is implemented with 2 methods - add and find. 2 implementations - Python and C compiled into a dynamic library loaded by the CPython interpreter are tested and benchmarked against each other to find out their memory footprint and speed. 
 
-While C and the conventions of CPython extension hacking are tricky to get your head around. 
+While C and the conventions of CPython extension hacking are tricky to get your head around, they are hopefully worth up for applications with high performance requirements. 
 
 ## Test
 
@@ -28,7 +28,7 @@ Using a bit of bash magic, we can prepare a lowercase-only, clean of punctuation
 head -n 50000 /usr/share/dict/words | tail -n 20000 | tr -d "[A-Z|']" | iconv -f utf8 -t ascii//TRANSLIT | uniq | head -n 18000 > clean_words
 ```
 
-Take the first 50000 words from unix dictionary fail, take the words from the middle, remove all uppercase letters and apostrophes, convert/transliterate all non-ascii chars to ascii and pipe the top 18000 unique words into the clean_words file
+Take the first 50000 words from unix dictionary file, take the words from the middle, remove all uppercase letters and apostrophes, convert/transliterate all non-ascii chars to ascii and pipe the top 18000 unique words into the clean_words file
 
 
 #### Random order
@@ -45,31 +45,32 @@ shuf clean_words > random_words
 head -n 80000 /usr/share/dict/words | tail -n 1000 | tr -d "[A-Z|']" | iconv -f utf8 -t ascii//TRANSLIT | uniq | head -n 800 > missing_words
 ```
 
+### Measure
 
-### Time to add 10000 words 
+#### Time to add 10000 words 
 
 Absolute time
 
-#### In alphabetic order
+##### In alphabetic order
 
-#### In random order
+##### In random order
 
-### Memory footprint
+#### Memory footprint
 
 The size of trie object after all the words have been added.
 
-### Time to find existing words 
+#### Time to find existing words 
 
 Average duration of finding same 50 words that are in the trie
 
-### Time to look for missing words
+#### Time to look for missing words
 
 Average duration of looking for same 50 words that aren't in the trie
 
 
 ## Results
 
-tbd
+Published in a blog and delivered as a presentation.
 
 ## Conclusion
 
