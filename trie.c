@@ -109,7 +109,7 @@ static PyObject *trie_add(trie *self, PyObject *args) {
   return Py_BuildValue(""); // returns None
 }
 
-static char find_docstring[] = "Returns True/False if word in trie or not";
+static char find_docstring[] = "Returns 1/0 if word in trie or not";
 static PyObject *trie_find(trie *self, PyObject *args) {
   const char *word;
   int word_length = 0;
