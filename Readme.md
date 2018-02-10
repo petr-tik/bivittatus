@@ -70,7 +70,7 @@ Average duration of looking for same 50 words that aren't in the trie
 
 ## Results
 
-Published in a blog and delivered as a presentation.
+TODO: Published in a blog and delivered as a presentation.
 
 ## Conclusion
 

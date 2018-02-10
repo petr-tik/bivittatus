@@ -39,3 +39,13 @@ def test_find_missing_letters_exist_after(constructor):
 def test_find_missing_before_add(constructor):
     tr = constructor()
     assert tr.find("me") == 0
+
+
+@pytest.mark.parametrize("constructor", constructors)
+def test_add_many_find_missing(constructor):
+    tr = constructor()
+    tr.add("bob")
+    tr.add("boban")
+    assert tr.find("me") == 0
+    tr.add("alice")
+    assert tr.find("alice") == 1
