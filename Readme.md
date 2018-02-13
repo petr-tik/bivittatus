@@ -70,7 +70,10 @@ Average duration of looking for same 50 words that aren't in the trie
 
 ## Results
 
-TODO: Published in a blog and delivered as a presentation.
+See the [blog post](http://petr-tik.github.io/search-text-fast-or-die-trie-ing.html) or download it and run the test suite yourself! 
+
+Tested on Linux Ubuntu. 
+
 
 ## Conclusion
 
