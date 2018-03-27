@@ -6,7 +6,7 @@ Find the difference between writing Python code vs compiling C into a shared lib
 
 ## Method
 
-A good comparison is storing and searching strings in a trie. A trie data structure is implemented with 2 methods - add and find. 2 implementations - Python and C compiled into a dynamic library loaded by the CPython interpreter are tested and benchmarked against each other to find out their memory footprint and speed. 
+Comparing the performance of a trie structure to store and search strings. A trie data structure is implemented with 2 methods - add and find. 2 implementations - Python and C compiled into a dynamic library loaded by the CPython interpreter are tested and benchmarked against each other to find out their memory footprint and speed. 
 
 While C and the conventions of CPython extension hacking are tricky to get your head around, they are hopefully worth up for applications with high performance requirements. 
 
